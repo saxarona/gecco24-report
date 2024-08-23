@@ -2,7 +2,7 @@
 % Tech report template
 % 
 % ----------
-\documentclass[12pt, letterpaper, twoside]{article}
+\documentclass[11pt, letterpaper, oneside]{article}
 \usepackage{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
@@ -16,6 +16,9 @@
 \usepackage{blindtext}
 \usepackage{parskip}
 \usepackage{etoolbox}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{xcolor}
 
 
 \input{preamble.tex}
@@ -24,15 +27,15 @@
 % Variables
 % ----------
 
-\title{\textbf{Tech Reports\\How to write an effective report using a long title such that it does not fit in the fancy header}} % Full title of your tech report
-\runningtitle{A short title for your report} % Short title
-\author{My name \and John Doe \and Jane Doe} % Full list of authors
-\runningauthor{My name et al.} % Short list of authors
-\affiliation{My University} % Affiliation e.g. University or Company
-\department{My Department} % Department or Office
-\memoid{AI Memo 420} % ID of the tech report
-\theyear{2018} % year of the tech report
-\mydate{October 24, 2018} %the date
+\title{\textbf{GECCO 2024---Summary,\\potential future work and exchange opportunities}} % Full title of your tech report
+\runningtitle{GECCO'24 Report} % Short title
+\author{Xavier F. C. Sánchez Díaz} % Full list of authors
+\runningauthor{X. Sánchez Díaz} % Short list of authors
+\affiliation{Norwegian University of Science and Technology} % Affiliation e.g. University or Company
+\department{Department of Computer Science} % Department or Office
+\memoid{GECCO'24 - NAIL} % ID of the tech report
+\theyear{2024} % year of the tech report
+\mydate{Aug 23, 2024} %the date
 
 
 % ----------
@@ -42,17 +45,19 @@
 \maketitle
 
 \begin{abstract}
-    \noindent
-    \blindtext[1]
+    This is a short compendium of potential areas of interest for my PhD topic, as a result of attending GECCO 2024.
+    Nothing seems extraordinarily new, but there are a couple of ideas it is worth to incorporate.
+    First, I include a short summary of the whole conference. Then, some of the interesting trends in the community, and then I include a list of authors and advanced topics on multimodal optimisation that could extend our work.
+    Finally, a brief description of ROAR-net and its funding opportunities is included.
 
-    \keywords{Keyword1, Keyword2, Keyword3}
+    \keywords{Evolutionary Computation, Conferences, }
 \end{abstract}
 
 \vspace{2.5cm}
 
 {\footnotesize
     \noindent
-    Special thanks to \textbf{Person 1} and \textbf{Affiliation A} for financial support for this project.
+    Attending the conference was possible thanks to funding from \textbf{The Research Council of Norway} under project number 311284 for the \textbf{Norwegian Open AI Lab}.
 }
 
 \thispagestyle{firstpage}
@@ -65,19 +70,146 @@
 
 \newgeometry{} % Redefine geometries (normal margins)
 
-\section{Introduction}
-\label{sec:intro}
+\section{Summary of the conference}
+\label{sec:summary}
 
-\blindmathpaper
+My participation in the conference included attending to two different events:
+
+\begin{itemize}
+    \item SIGEVO Summer School (S3) 2024
+    \item GECCO 2024
+\end{itemize}
+
+
+\subsection{S3 2024}
+
+S3 2024 took place from Wednesday July 10 to Saturday July 13.
+It included brief talks about scientific writing, presentation, reviewing and how to do modelling in optimisation problems.
+
+On top of the talks, the summer school had a \textit{coding challenge} (which was extremely challenging indeed---first because they force you to use a specific programming language, and second because they provide a code handout that is old, undocumented and explicitly prohibits the use of industry-ready libraries).
+Needless to say, it felt more like a hackathon than a proper challenge, but I assume that is what young students prefer?
+
+Overall, a very useful selection of topics for a first year PhD. I have to say I did not find it very useful myself, but I have been working on problem modelling for around a decade now.
+
+\subsection{GECCO 2024}
+
+
+GECCO started on Sun Jul 14 with workshops and tutorials for 2 days, and then 2 and a half more days of poster and paper presentations.
+This section includes all activities I attended, highlighting those I found the most useful and interesting.
+For specific information about a session, please refer to the conference proceedings at \href{https://dl.acm.org/conference/gecco/proceedings}{ACM's website}.
+
+\subsubsection{Tutorials and Workshops}
+
+\begin{enumerate}
+    \item \textbf{Tutorial: Lehre's \textit{Runtime analysis of population-based EAs}}
+    \item Tutorial: Xue's \textit{Feature Selection and Construction using EAs}
+    \item Tutorial: Coello's \textit{Constraint Handling Techniques used with EAs}
+    \item Tutorial: Doerr's \textit{A gentle introduction to Theory for Non-Theoreticians}
+    \item Special Session: \textit{Women+ @ GECCO}
+    \item Workshop: Thomson's \textit{Landscape Aware Heuristic Search}
+    \item Workshop: Naujok's \textit{Good Benchmarking Practices for EC}
+    \item \textbf{Tutorial: Ochoa's \textit{Landscape Analysis of Optimisation Problems and Algorithms}}
+    \item \textbf{Tutorial: Sudholt's \textit{Theory and Practice of Population Diversity in EC}}
+    \item Keynote: Toby Walsh's \textit{Generative AI: why all the fuss?}
+\end{enumerate}
+
+\subsubsection{Main Conference and Parallel Sessions}
+
+\begin{enumerate}
+    \item \textbf{Session: \textit{ROAR-Net}}
+    \item Session: \textit{Understanding search trajectories in parameter tuning}
+    \item \textbf{Session: \textit{The role of substrate in CA-based EAs}}
+    \item Session: \textit{Learning from Offline and Online experiences: A hybrid adaptive operator selection framework}
+    \item {Session: \textit{A self adaptive coevolutionary algorithm}}
+    \item Session: \textit{Understanding Fitness Landscapes in Morpho-evolution via Local Optima Networks}
+    \item Session: \textit{Approximating Pareto Local Optima Solution Networks}
+    \item SIGEvo's Impact Session: \textit{Multiple Regression Genetic Programming}
+    \item Session: \textit{Learning Traffic Signal Control via GP}
+    \item Session: \textit{LLM-based test case generation for GP Agents}
+    \item Session: \textit{Enhancing Prediction, Explainability, Inference and Robustness of Decision Trees via Symbolic Regression-Discovered Splits}
+    \item Session: \textit{MO Evolutionary Component Effect on Algorithm Behavior}
+    \item Session: \textit{A functional analysis approach to symbolic regression}
+    \item Session: \textit{LLMs for the automated analysis of optimization algorithms}
+    \item Session: \textit{Illustrating the Efficiency of Popular Evolutionary Algorithms using Runtime Analysis}
+    \item Session: \textit{Empirical Comparison between MOEAs and Local Search on MO Combinatorial Optimisation Problems}
+    \item \textbf{Session: \textit{Markov-chain based Optimization Time Analysis of Bivalent Ant Colony Optimization for Sorting and LeadingOnes}}
+    \item \textbf{Session: \textit{Superior Genetic Algorithms for the Target Set Selection Problem Based on Power-Law Parameter Choices and Simple Greedy Heuristics}}
+    \item Session: \textit{Genetic Algorithm selection of Interacting Features for selecting biological gene-gene interaction}
+    \item \textbf{Session: \textit{The SLO Hierarchy of pseudo-Boolean Functions and Runtime of Evolutionary Algorithms}}
+    \item Session: \textit{Evolutionary Preference Sampling for Pareto Set Learning}
+    \item Session: \textit{Grahf: a Hyper-heuristic framework for evolving heterogeneous Island Model Topologies}
+    \item Session: \textit{Evolving Reliable Differentiating Constraints for the Chance-constrained Maximum Coverage Problem}
+    \item Competition: \textit{HUMIES awards: Human-Competitive results}
+    \item Keynote: May O'Reilly's \textit{Coevolution in Natural and Artificial Systems}
+\end{enumerate}
+
+
+\section{Discussion: Noticeable Trends}
+
+My overall impression is that there are a few topics in which there were way more submissions than in others.
+For example, there was \textbf{only one submission} dealing with \textbf{Hyper-heuristics} while there were multiple of them {solving problems with Genetic Programming}.
+A more ``apples to apples'' comparison would be with the \textit{kind} of research done.
+
+For example, I identified two broad types of projects: 1) applications, and 2) theory.
+As is usual, there were far more papers on \textbf{applications} (or competitions/benchmarking---actually solving the problem, let's say) than in theory (usually, proposing new problems or proving runtime of specific problems).
+
+Most of the submissions were dealing with \textbf{multi-objective} optimisation rather than testing in single objective domains.
+Applications would normally be solved using \textbf{GP}, and most of the optimisation done would be on \textbf{continuous domains}.
+Very few of these were actually in \textbf{constrained settings}, and many mention how the hardness of \textbf{synthetic problems} \underline{does not} reflect the behaviour in \textbf{real-life instances}:
+synthetic problems might be more tricky to escape from than real life instances, while competition suite problems seem to \underline{not be able} to represent all difficulties that problem instances in real-life would impose.
+This occurs for multiple benchmark suites.
+
+Finally, \textbf{Co-evolutionary algorithms} seem to be a \textit{not-so-new} branch of evolutionary computation which looks to be quite promising.
+It makes a lot of sense, since it is an easier-to-understand adversarial model (similar to GANs), with the added bonus of the explainability and tracing of the solution which evolutionary computation methods usually provide.
+
+\textbf{Theory and analysis} people, however, have their own agenda and publish multiple things outside these trends.
+In theoretical research, the trends are basically laid out by the different research groups (or whomever leads them):
+\begin{itemize}
+    \item Sudholt's group works on runtime and analysis for \textbf{diversity preservation method}s
+    \item Lehre's group works on \textbf{coevolution} and \textbf{runtime analysis of Pseudoboolean problems}
+    \item Doerr's group works on \textbf{runtime analysis for specific combinations on parameters and algorithms}, mostly multi-objective
+    \item Ochoa's group works on \textbf{landscape analysis}, mostly on \textbf{combinatorial problems} using Local-Optima Networks. Recently they have worked on describing search trajectories (\textbf{algorithm performance}) using Search Trajectory Networks.
+\end{itemize}
+
+\section{Possible paths for future work}
+
+In no particular order, the highlighted topics can be formulated as future work with our research for evolutionary computation, landscape analysis and multimodal optimization.
+
+For example, using the \textbf{SLO hierarchy} to continue the work on the \textsc{Triangle} problem we proposed, and doing analysis on it.
+This would allow us to formalise the problem and can make it available for other people to use as a test problem.
+
+On the topic of \textbf{Pseudoboolean} functions (PBFs), there is potential on creating a \textit{compendium} of such PBFs.
+There are multiple \textit{problem-suites} (like BBOB and COCO) focusing on continuous problems, but I have not seen any website compiling PBFs.
+This could be easily set as a result from working on a master student thesis.
+
+\textbf{Strengthening the analysis} we have done before (for example on our GECCO '24 paper, or on our PPSN '24 paper) using \textbf{STNs} is also possible.
+In fact, I believe is one of the things we should consider, as Ochoa et al. provided a website to do STNs if provided with a specific output from our algorithms.
+This also opens the door to creating more landscape analysis and visualisations for previous papers, e.g., the ambulance problem from our GECCO '23 paper with Magnus Schjølberg and Nicklas Bekkevold.
+
+The \textbf{lack of papers on multimodal optimisation} makes it quite an interesting topic to discuss.
+There are hints of its importance, for example for Sudholt's lab where they do \textbf{diversity preservation}, and considering the presence of multiple populations in \textbf{coevolution}.
+The fact that we perform landscape analysis means it is important to understand the problem, and multimodal problems are perhaps a bit more interesting considering certain applications.
+Maybe \textbf{highlighting these applications} would be wise in order to bring more attention to this matter.
+
+\section{Possible Funding Sources}
+
+An interesting outcome of my networking was talking with \textbf{Per Kristian Lehre} and \textbf{Gabriela Ochoa}.
+Both of them are in the \textbf{ROAR Network}, which objective is to create a network of experts in \textit{Randomised Optimisation Algorithms}.
+The network provides funding for so-called \textit{short scientific missions} where a scholar visits another institution (hence becoming a \textit{visiting scholar}).
+Both Lehre and Ochoa mentioned it was possible to visit their institutions (University of Birmingham and University of Stirling, respectively).
+
+More information about the ROAR-net can be found in \href{https://roar-net.eu/}{their website}.
 
 \section{Conclusions}
 \label{sec:conc}
 
-Tech Report writing is an art.
+This short report includes a brief description of my activities in the GECCO 2024 conference.
+It also highlights the parallel sessions and presentations I found the most interesting, and how they can impact our future research on multimodal optimisation, landscape analysis and in evolutionary computation in general.
+Some links are provided to find out more about the funding opportunities from the ROAR-net and its short scientific missions, as well to ACM's proceedings in case more details about a specific presentation are needed.
 
 \section*{Acknowledgements}
 
-Thanks again to \textbf{Person 1} and \textbf{Affiliation A} for their financial support.
+Thanks again to funding from \textbf{The Research Council of Norway} under project number 311284 for the \textbf{Norwegian Open AI Lab}, as it allowed me to attend the conference to present our work.
 
 % ----------
 % Bibliography
@@ -86,19 +218,8 @@ Thanks again to \textbf{Person 1} and \textbf{Affiliation A} for their financial
 % \bibliography{../biblio.bib}
 % \bibliographystyle{abbrv}
 
-\appendix
+% \appendix
 
-\section{An appendix}
-
-\blindtext
-
-\section{Another appendix}
-
-\subsection*{Subsectioning in appendix}
-
-Some more text, and a list:
-
-\blindenumerate
 
 \end{document}
 
